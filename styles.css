@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&display=swap');
+
+:root {
+    --bg-light: linear-gradient(135deg, #f5f5dc 0%, #e8e4d8 100%);
+    --bg-dark: linear-gradient(135deg, #2c1810 0%, #1a0f08 100%);
+    --text-light: #3e2a1f;
+    --text-dark: #e8e4d8;
+    --card-bg-light: linear-gradient(145deg, #faf9f6 0%, #f0ede6 100%);
+    --card-bg-dark: linear-gradient(145deg, #3e2a1f 0%, #2c1810 100%);
+    --border-light: #d2b48c;
+    --border-dark: #8b4513;
+}
+
+body {
+    font-family: 'Crimson Text', serif;
+    background: var(--bg-light);
+    color: var(--text-light);
+    min-height: 100vh;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+body[data-bs-theme="dark"] {
+    background: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+.text-brown {
+    color: #8b4513 !important;
+}
+
+body[data-bs-theme="dark"] .text-brown {
+    color: #daa520 !important;
+}
+
+.parchment-card {
+    background: var(--card-bg-light);
+    border: 2px solid var(--border-light) !important;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15), inset 0 0 10px rgba(255,255,255,0.5);
+    transition: background 0.3s ease, border 0.3s ease;
+}
+
+body[data-bs-theme="dark"] .parchment-card {
+    background: var(--card-bg-dark);
+    border: 2px solid var(--border-dark) !important;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3), inset 0 0 10px rgba(255,255,255,0.1);
+}
+
+.btn-warning {
+    background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-warning:hover {
+    background: linear-gradient(135deg, #b8860b 0%, #daa520 100%);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    animation: bounce 0.5s ease;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-5px); }
+    60% { transform: translateY(-3px); }
+}
+
+.form-select, .form-control {
+    border: 1px solid #a0522d;
+    background: #fffaf0;
+    color: #3e2a1f;
+    transition: all 0.3s ease;
+}
+
+body[data-bs-theme="dark"] .form-select, body[data-bs-theme="dark"] .form-control {
+    border: 1px solid #daa520;
+    background: #3e2a1f;
+    color: #e8e4d8;
+}
+
+.form-select:focus, .form-control:focus {
+    border-color: #daa520;
+    box-shadow: 0 0 8px rgba(218,165,32,0.5);
+}
+
+#verses-display {
+    padding: 20px;
+    background: rgba(245,245,220,0.8);
+    border-radius: 10px;
+    border: 1px solid #d2b48c;
+    text-align: left;
+    white-space: pre-line;
+    line-height: 1.6;
+    max-height: 400px;
+    overflow-y: auto;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+    opacity: 0;
+    animation: fadeInBounce 0.8s ease forwards;
+}
+
+body[data-bs-theme="dark"] #verses-display {
+    background: rgba(62,42,31,0.8);
+    border: 1px solid #8b4513;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+}
+
+@keyframes fadeInBounce {
+    0% { opacity: 0; transform: translateY(30px) scale(0.9); }
+    50% { opacity: 0.5; transform: translateY(-10px) scale(1.05); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .parchment-card .card-body {
+        padding: 20px;
+    }
+    #verses-display {
+        max-height: 300px;
+    }
+}
